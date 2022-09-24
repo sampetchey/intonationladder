@@ -1,0 +1,234 @@
+body {
+    background-color: #edd947;
+    font-family: "Varela Round", sans-serif;
+    color: black;
+    text-align: center;
+}
+
+/* --------- Game layout --------*/
+
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 20vh 20vh 20vh;
+    margin: 0;
+    gap: 10px;
+    background-color: #edd947;
+}
+
+.game-area > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* --------- heading --------*/
+
+.logo {
+    grid-column: 2 / 6;
+    margin-bottom: 6vh;
+}
+
+.logo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --------- result display --------*/
+
+.ladder {
+    grid-column: 3 / 4;
+    
+}
+
+.ladder > img {
+    width: 250px;
+    height: 180px;
+    object-fit: none;
+    object-position: bottom;
+    overflow: hidden;
+    border: solid 5px #2b46bd;
+    border-radius: 5%;
+    margin-right: 20px;
+    float: right;
+}
+
+.answer-box {
+    grid-column: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f2eddb;
+    border: solid 5px #2b46bd;
+    margin: auto;
+    border-radius: 10%;
+    min-width: 150px;
+    max-width: 150px;
+}
+
+.answer-box > h1 {
+    font-size: 4rem;
+    margin: 10px 0 0 0;
+}
+
+/* --------- controls area --------*/
+
+.game-controls-area {
+    grid-column: 3 / 5;
+}
+
+.info-area {
+    grid-column: 2 / 3;
+}
+
+/* --------- answer area --------*/
+
+.answer-button-area {
+    grid-column: 3 / 5;
+}
+
+/* --------- Buttons */
+
+.btn {
+    width: 45%;
+    height: 60%;
+    font-family: "Varela Round", sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#play, #repeat, #quit, #info {
+    border: none;
+    background-color: #edd947;
+    
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn--big {
+    font-size: 5rem;
+    transition: all 0.5s;
+}
+
+.btn--big::after{
+    content:attr(data-type);
+    font-size: 1rem;
+    color: #445361;
+    position: relative;
+    left: -0.5rem;
+}
+
+.btn--red {  
+    color: #c42217;
+}
+
+.btn--red:active,
+.btn--red:hover {
+    color: darkred;
+}
+
+.btn--green {
+    color: #2b46bd;
+}
+
+.btn--green:active,
+.btn--green:hover {  
+    color: #1d7151;
+}
+
+.btn--gray {
+    margin-top: 25px;
+    background-color: #1d7151;
+    border: 1px transparent;
+    border-radius: 20px;
+    color: #f2eddb;
+    transition: all 0.5s;
+    
+}
+
+.btn--gray:active,
+.btn--gray:hover {
+    transition: all 0.5s;
+    background-color: #2b46bd;
+    color: #f2eddb
+}
+
+/* --------- Media queries */
+
+@media (max-width: 414px) {
+    .controls-area {
+        width: 100%;
+    }
+
+    .btn--big {
+        margin: 0 10px;
+        padding: 5px;
+        border: 5px solid;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .btn--big::after {
+        font-size: 0.6rem;
+        left: -0.7rem;
+    }
+
+    .question-area {
+        padding: 10% 0;
+        width: 100%;
+    }
+
+    .question-area span {
+        padding: 0;
+    }
+
+    .answer-message {
+        display: block;
+    }
+
+    #answer-box {
+        display: block;
+        margin: 0 auto;
+    }
+    .btn--gray {
+        margin-top: 0;
+    }
+
+    .score-area {
+        width: 100%;
+    }
+
+    .scores {
+        margin: 0.5em auto;
+        display: block;
+        padding: 5px;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .game-area {
+        height: 70vh;
+    }
+
+    .controls-area {
+        width: 75%;
+        margin: 10px auto;
+    }
+
+    .btn--big {
+        margin: 10px 10px;
+    }
+    .question-area {
+        padding: 10px 0;
+    }
+
+}
