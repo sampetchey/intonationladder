@@ -98,17 +98,13 @@ body {
     letter-spacing: 2px;
 }
 
-#play, #repeat, #quit, #info {
-    border: none;
-    background-color: #edd947;
-    
-}
-
 .btn:focus {
     outline: none;
 }
 
 .btn--big {
+    border: none;
+    background-color: #edd947;
     font-size: 5rem;
     transition: all 0.5s;
 }
