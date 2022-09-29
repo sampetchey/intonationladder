@@ -59,97 +59,178 @@
 //     });
 //     return commands; //return full object with all commands
 //  }
-
-audioObject = {}
-
-for (let i = 0; i < 10; i++) {
- audioObject["fileName" + i ] = new Audio(`./assets/audio/${i}`)
-};
-
-console.log(audioObject);
-
-const SOUNDS = [
-    {
-      'intonation': 'sharp',
-      'pitch': 'A3',
-      'cent': 30,
-    },
-    {
-      'intonation': 'flat',
-      'pitch': 'B4',
-      'cent': 30,
-    }
-  ]
-  
-  
   
   // 1. Have a list of all sounds
   // 2. When game starts, load a random sound
   // 3. When user clicks on play/replay button, play the sound.
   // 4. When the user clicks on either flat/sharp, grade and go to next sound
   
+  const playButton = document.getElementById('play');
   
-  const flatButton = document.getElementById('flat')
-  const sharpButton = document.getElementById('sharp')
+  const scoreBoard = document.querySelector('.score');
   
   
-  document.onload = startGame
+     
+  const intonation = ['sharp', 'flat'];  
+  const pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
+  let cent = 30;
+  let score = 0;
+
+  // const randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
+  // console.log(randomPitch);
+
+  // const randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
+  // console.log(randomIntonation);
+  
+  function play() {
+    var randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
+    document.getElementById("pitch").innerHTML = `${randomPitch}`
+    
+    var randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
+    console.log(randomIntonation);
+    document.getElementById("audio").src = `assets/audio/${randomIntonation}_${cent}cent_${randomPitch}.mp3`;
+    audio.play();
+
+  }
+
+  function increase() {
+    score++;
+    scoreBoard.textContent = score;
+  }
+
+  const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
+  function answerFlat() {
+    let playerAnswer = 'flat'
+    console.log(playerAnswer);
+  }
+  const sharpButton = document.getElementById('sharp').addEventListener('click', answerSharp());
+  function answerSharp() {
+    let playerAnswer = 'sharp'
+    console.log(playerAnswer);
+  }
+
+  function grade() {
+    if (randomIntonation === playerAnswer) {
+      increase();
+      increaseLevel();
+      play();
+    }
+  }
+
+  function gradeFlat() {
+    if (randomIntonation === 'flat') {
+      increase()
+      increaseLevel()
+      play();
+    }
+  }
+
+  function gradeSharp() {
+    if (randomIntonation === 'sharp') {
+      increase()
+      increaseLevel()
+      play();
+    }
+  }
+
+  function increaseLevel() {
+    if (score = 2 || 4 || 6 || 8 || 10 || 15 || 20 || 25 || 30 || 35 || 40 || 45 || 50) {
+      cent - 1;
+      console.log(cent);
+    }
+  }
+
+  
+
+
+  // function grade() {
+  //   if (
+  //     document.getElementsByClassName("answer-button-area").button.data-type === randomIntonation;
+  //   )
+  //   return correct
+  //   console.log(correct);
+  // }
+    
+  
+
+  //document.onload = startGame
   
   // <button id="flat" data-value="flat">
-  flatButton.addEventListener('click', grade)
-  // <button id="sharp" data-value="sharp">
-  sharpButton.addEventListener('click', grade)
   
+  playButton.addEventListener('click', startGame)
   
-  // Game state variables
-  let currentSoundIndex;
-  let score
-  
-  /* Set initial game state and start the game.
+ /* Set initial game state and start the game.
   
   */
-  function startGame() {
+ function startGame() {
+    scoreBoard.textContent = 0;
+    score = 0;
   
-    score = 0
-    currentSoundIndex = 0
   
-    // TODO: Load a random sound
-    // Load a sound
-    nextSound()
-  }
+
+  // TODO: Load a random sound
+  // Load a sound
+  nextSound()
+}
+
+  // Game state variables
+  // let currentSoundIndex;
   
-  function grade(evt) {
-    let clickedButton = evt.currentTarget
   
-    let currentSound = SOUNDS[currentSoundIndex]
+
+
+  // function grade(evt) {
+  //   let clickedButton = evt.currentTarget
   
-    if (clickedButton.dataset.value == currentSound.intonation) {
-      // Increase score
-      // Move to next sound
-      nextSound()
-    }
-    else {
-      // do something else
-    }
+  //   let currentSound = SOUNDS[currentSoundIndex]
   
-  }
+  //   if (clickedButton.dataset.value == currentSound.intonation) {
+  //     // Increase score
+  //     // Move to next sound
+  //     nextSound()
+  //   }
+  //   else {
+  //     // do something else
+  //   }
   
-  function nextSound() {
-    let fileName = getFileName(currentSoundIndex)
-    let filePath = 'assets/sounds/' + fileName
+  // }
   
-    let sound = new Audio(filePath)
-  }
+//   var answers = {
+//     'question': 'yes',
+//     'question1': 'no',
+// };
+
+// function getScore(el) {
+//   var score = 0;
+//   $("input[id^='question'").each(function(){
+//       if (answers[this.id] === this.value){
+//         score += 1;    
+//         $(this).addClass("correct");
+//       } else {
+//         $(this).removeClass("correct");
+//       }
+//   });
+    
+//   return score;
+// }
+
+// var score = 5;
+// document.write.getElementById('score').innerhtml = score;
+
+// $('input').on('keyup', function(){
+//   $('#score').text('score: ' + getScore());
+// });
+
+
+
+  // function nextSound() {
+  //   let fileName = getFileName(currentSoundIndex)
+  //   let filePath = 'assets/sounds/' + fileName
+  
+  //   let sound = new Audio(filePath)
+  // }
   
   /* Get a valid filename for a sound file in the sounds directory.
   
   */
-  function getFileName(soundIndex) {
   
-    let soundObject = SOUNDS[soundIndex]
-    // Sample: 'fileName': 'flat_30cent_A3.mp3'
-    let fileName = soundObject.sharp ? 'sharp' : 'flat'
-    fileName += `_${soundObject.cent}cent_${soundObject.pitch}.mp3`
-  
-    return 'flat_30cent_A3.mp3'
-  }
