@@ -30,15 +30,17 @@
             <button id="play" class="btn--big btn--green" onclick="play()">
                 <i class="fa-solid fa-play"></i>
             </button>
-
+            <button class="btn--big btn--green" onclick="replayAudio()">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
             <button type="reset" class="btn--big btn--red">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
         <audio id="audio" src=""></audio>
         <div class="answer-button-area">
-            <button id="flat" type="submit" class="btn btn--gray" onclick="answerFlat()">Flat</button>
-            <button id="sharp" type="submit" class="btn btn--gray" onclick="answerSharp()">Sharp</button>
+            <button id="flat" class="btn btn--gray" onclick="answerFlat()">Flat</button>
+            <button id="sharp" class="btn btn--gray" onclick="answerSharp()">Sharp</button>
         </div>
         <div class="info-area">
             <button id="info" class="btn--big btn--red" onclick="openModal()">
@@ -71,6 +73,26 @@
                 <br>
                 10-1cent - with 3 correct
             </h4>
+        </div>
+    </div>
+    <div id="gameOver" class="info-modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="info-modal-content">
+            <h3>Ahh no! That's not right
+                <br>
+                <span id="correctAnswer">the answer is ""</span>
+                listen again... 
+                <button class="btn--big btn--green" onclick="replayAudio()">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+                <br>
+                <span id="totalScore">Your total score was ""</span>
+                <br>
+                PLAY AGAIN...
+                <button id="play" class="btn--big btn--green" onclick="play()">
+                    <i class="fa-solid fa-play"></i>
+                </button> 
+            </h3>
         </div>
     </div>
 

@@ -39,12 +39,12 @@
 
 // async function getCommands() {
 //     let commands = {};
- 
+
 //     //get all enteties from folder
 //     let commandFiles = await fs.promises.readdir("./assets/audio", (err, elements) => {
 //         if (err) return console.log(err);
 //     });
- 
+
 //     commandFiles.forEach(file => { //loop through all elements in folder "commands"
 //        const element_in_folder = fs.statSync(`./assets/audio/${file}`)
 //        if (element_in_folder.isDirectory() == true) { //check if element in folder is a subfolder
@@ -60,173 +60,196 @@
 //     return commands; //return full object with all commands
 //  }
 
-  document.onload = startGame
+document.onload = startGame
 
-  // <button id="flat" data-value="flat">
+// <button id="flat" data-value="flat">
 
-  // playButton.addEventListener('click', startGame)
+// playButton.addEventListener('click', startGame)
 
- /* Set initial game state and start the game.
-  
-  */
- function startGame() {
+/* Set initial game state and start the game.
+ 
+ */
+function startGame() {
   scoreBoard.textContent = 0;
   score = 0;
- }
+}
 
 const playButton = document.getElementById('play');
 
-  const scoreBoard = document.querySelector('.score');
+const scoreBoard = document.querySelector('.score');
 
 
 
-  const intonation = ['sharp', 'flat'];  
-  let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
-  let pitch2 = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
-  let pitch3 = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4']
-  let cent = 30;
-  let score = 0;
-  let ladder = document.getElementById("ladder");
+const intonation = ['sharp', 'flat'];
+let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
+let pitch2 = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
+let pitch3 = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4']
+let cent = 30;
+let score = 0;
+let ladder = document.getElementById("ladder");
 
-  // const randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
-  // console.log(randomPitch);
+// const randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
+// console.log(randomPitch);
 
-  // const randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
-  // console.log(randomIntonation);
-  
-  function increase() {
-    
-    score++;
-    scoreBoard.textContent = score;
-    ladder.classList.add("move-ladder");
-    if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 ||
-      score === 12 || score === 14 || score === 16 || score === 18 || score === 20 ||
-      score === 25 || score === 30 || score === 35 || score === 40 || score === 45 ||
-      score === 50 || score === 55 || score === 60 || score === 65 || score === 70 ||
-      score === 73 || score === 76 || score === 79 || score === 82 || score === 85 ||
-      score === 88 || score === 91 || score === 94 || score === 97) {
-      --cent;
-      console.log(cent);
-      document.getElementById("level").innerHTML = `${cent} cent`
-      } if (score >= 20 && score < 70) {
-        let pitch = [...pitch2, 'A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
-        console.log(pitch);
-      } if (score >= 70) {
-        let pitch = pitch3;
-        console.log(pitch);
-      }
-      else if (score === 100) {
-        console.log("Congratulations! You achieved a perfect score - 100")
-      }
+// const randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
+// console.log(randomIntonation);
+
+
+
+
+
+function play() {
+  ladder.classList.remove("move-ladder");
+  let randomPitch = pitch[Math.floor(Math.random() * pitch.length)];
+  document.getElementById("pitch").innerHTML = `${randomPitch}`
+
+  let randomIntonation = intonation[Math.floor(Math.random() * intonation.length)];
+  console.log(randomIntonation);
+  document.getElementById("audio").src = `assets/audio/${randomIntonation}_${cent}cent_${randomPitch}.mp3`;
+  audio.play();
+}
+
+function answerFlat() {
+    if (randomIntonation = 'flat') {
+    increase();
+    play()
+  } else if (randomIntonation != 'flat') {
+    gameOver();
   }
+}
 
-  function play() {
-    ladder.classList.remove("move-ladder");
-    var randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
-    document.getElementById("pitch").innerHTML = `${randomPitch}`
-
-    var randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
-    console.log(randomIntonation);
-    document.getElementById("audio").src = `assets/audio/${randomIntonation}_${cent}cent_${randomPitch}.mp3`;
-    audio.play();
-
+function answerSharp() {
+    if (randomIntonation = 'sharp') {
+    increase();
+    play();
+  } else if (randomIntonation != 'sharp') {
+    gameOver();
   }
+}
 
-  // const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
-    function answerFlat() {
-    let playerAnswer = 'flat'
-     console.log(playerAnswer);
-     if (randomIntonation = 'flat') {
-      increase();
-     }
-   }
-  // const sharpButton = document.getElementById('sharp').addEventListener('click', answerSharp());
-   function answerSharp() {
-     let playerAnswer = 'sharp'
-     console.log(playerAnswer);
-     if (randomIntonation = 'sharp') {
-      increase();
-     }
-   }
-
-   function openModal() {
-    document.getElementById("infoModal").style.display = "block";
+function increase() {
+  score++;
+  scoreBoard.textContent = score;
+  ladder.classList.add("move-ladder");
+  if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 ||
+    score === 12 || score === 14 || score === 16 || score === 18 || score === 20 ||
+    score === 25 || score === 30 || score === 35 || score === 40 || score === 45 ||
+    score === 50 || score === 55 || score === 60 || score === 65 || score === 70 ||
+    score === 73 || score === 76 || score === 79 || score === 82 || score === 85 ||
+    score === 88 || score === 91 || score === 94 || score === 97) {
+    --cent;
+    console.log(cent);
+    document.getElementById("level").innerHTML = `${cent} cent`
   }
-  
-  // Close the Modal
-  function closeModal() {
-    document.getElementById("infoModal").style.display = "none";
+  if (score >= 20 && score < 70) {
+    let pitch = [...pitch2, 'A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
+    console.log(pitch);
   }
-
-  // function grade() {
-  //   if (randomIntonation === playerAnswer) {
-  //     increase();
-  //     increaseLevel();
-  //     play();
-  //   }
-  // }
-
-  // function gradeFlat() {
-  //   if (randomIntonation === 'flat') {
-  //     increase()
-  //     increaseLevel()
-  //     play();
-  //   }
-  // }
-
-  // function gradeSharp() {
-  //   if (randomIntonation === 'sharp') {
-  //     increase()
-  //     increaseLevel()
-  //     play();
-  //   }
-  // }
-
-  // function increaseLevel() {
-  //   if (score = 2 || 4 || 6 || 8 || 10 || 15 || 20 || 25 || 30 || 35 || 40 || 45 || 50) {
-  //     cent - 1;
-  //     console.log(cent);
-  //   }
-  // }
+  if (score >= 70) {
+    let pitch = pitch3;
+    console.log(pitch);
+  } else if (score === 100) {
+    console.log("Congratulations! You achieved a perfect score - 100")
+  }
+}
 
 
 
-
-  // function grade() {
-  //   if (
-  //     document.getElementsByClassName("answer-button-area").button.data-type === randomIntonation;
-  //   )
-  //   return correct
-  //   console.log(correct);
-  // }
+function gameOver() {
+  document.getElementById("gameOver").style.display = "block";
+  document.getElementById("correctAnswer").innerHTML = `the answer is ${intonation}`
+}
 
 
- // TODO: Load a random sound
-  // Load a sound
+function replayAudio() {
+  audio.currentTime = 0;
+  audio.play();
+}
+
+// const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
+
+
+// const sharpButton = document.getElementById('sharp').addEventListener('click', answerSharp());
+
+
+function openModal() {
+  document.getElementById("infoModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("infoModal").style.display = "none";
+}
+
+// function grade() {
+//   if (randomIntonation === playerAnswer) {
+//     increase();
+//     increaseLevel();
+//     play();
+//   }
+// }
+
+// function gradeFlat() {
+//   if (randomIntonation === 'flat') {
+//     increase()
+//     increaseLevel()
+//     play();
+//   }
+// }
+
+// function gradeSharp() {
+//   if (randomIntonation === 'sharp') {
+//     increase()
+//     increaseLevel()
+//     play();
+//   }
+// }
+
+// function increaseLevel() {
+//   if (score = 2 || 4 || 6 || 8 || 10 || 15 || 20 || 25 || 30 || 35 || 40 || 45 || 50) {
+//     cent - 1;
+//     console.log(cent);
+//   }
+// }
+
+
+
+
+// function grade() {
+//   if (
+//     document.getElementsByClassName("answer-button-area").button.data-type === randomIntonation;
+//   )
+//   return correct
+//   console.log(correct);
+// }
+
+
+// TODO: Load a random sound
+// Load a sound
 //   nextSound()
 // }
 
-  // Game state variables
-  // let currentSoundIndex;
+// Game state variables
+// let currentSoundIndex;
 
 
 
 
-  // function grade(evt) {
-  //   let clickedButton = evt.currentTarget
+// function grade(evt) {
+//   let clickedButton = evt.currentTarget
 
-  //   let currentSound = SOUNDS[currentSoundIndex]
+//   let currentSound = SOUNDS[currentSoundIndex]
 
-  //   if (clickedButton.dataset.value == currentSound.intonation) {
-  //     // Increase score
-  //     // Move to next sound
-  //     nextSound()
-  //   }
-  //   else {
-  //     // do something else
-  //   }
+//   if (clickedButton.dataset.value == currentSound.intonation) {
+//     // Increase score
+//     // Move to next sound
+//     nextSound()
+//   }
+//   else {
+//     // do something else
+//   }
 
-  // }
+// }
 
 //   var answers = {
 //     'question': 'yes',
@@ -256,15 +279,13 @@ const playButton = document.getElementById('play');
 
 
 
-  // function nextSound() {
-  //   let fileName = getFileName(currentSoundIndex)
-  //   let filePath = 'assets/sounds/' + fileName
+// function nextSound() {
+//   let fileName = getFileName(currentSoundIndex)
+//   let filePath = 'assets/sounds/' + fileName
 
-  //   let sound = new Audio(filePath)
-  // }
+//   let sound = new Audio(filePath)
+// }
 
-  /* Get a valid filename for a sound file in the sounds directory.
-  
-  */
+/* Get a valid filename for a sound file in the sounds directory.
 
-  
+*/
