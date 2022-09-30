@@ -74,45 +74,38 @@ function startGame() {
   score = 0;
 }
 
-const playButton = document.getElementById('play');
+
+
+// const playButton = document.getElementById('play');
 
 const scoreBoard = document.querySelector('.score');
 
 
 
-const intonation = ['sharp', 'flat'];
-let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
+let intonation = ['sharp', 'flat'];
+let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
 let pitch2 = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
 let pitch3 = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4']
 let cent = 30;
 let score = 0;
 let ladder = document.getElementById("ladder");
 
-// const randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
-// console.log(randomPitch);
-
-// const randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
-// console.log(randomIntonation);
-
-
-
-
-
 function play() {
-  ladder.classList.remove("move-ladder");
   let randomPitch = pitch[Math.floor(Math.random() * pitch.length)];
   document.getElementById("pitch").innerHTML = `${randomPitch}`
-
+  console.log(randomPitch);
   let randomIntonation = intonation[Math.floor(Math.random() * intonation.length)];
   console.log(randomIntonation);
   document.getElementById("audio").src = `assets/audio/${randomIntonation}_${cent}cent_${randomPitch}.mp3`;
+  console.log(cent);
   audio.play();
 }
 
 function answerFlat() {
     if (randomIntonation = 'flat') {
+    play();
     increase();
-    play()
+    audioPool();
   } else if (randomIntonation != 'flat') {
     gameOver();
   }
@@ -120,8 +113,9 @@ function answerFlat() {
 
 function answerSharp() {
     if (randomIntonation = 'sharp') {
-    increase();
     play();
+    increase();
+    audioPool();
   } else if (randomIntonation != 'sharp') {
     gameOver();
   }
@@ -131,16 +125,23 @@ function increase() {
   score++;
   scoreBoard.textContent = score;
   ladder.classList.add("move-ladder");
-  if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 ||
-    score === 12 || score === 14 || score === 16 || score === 18 || score === 20 ||
-    score === 25 || score === 30 || score === 35 || score === 40 || score === 45 ||
-    score === 50 || score === 55 || score === 60 || score === 65 || score === 70 ||
+  if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 || 
+    score === 12 || score === 14 || score === 16 || score === 18 || score === 20 || 
+    score === 25 || score === 30 || score === 35 || score === 40 || score === 45 || 
+    score === 50 || score === 55 || score === 60 || score === 65 || score === 70 || 
     score === 73 || score === 76 || score === 79 || score === 82 || score === 85 ||
-    score === 88 || score === 91 || score === 94 || score === 97) {
-    --cent;
-    console.log(cent);
-    document.getElementById("level").innerHTML = `${cent} cent`
-  }
+     score === 88 || score === 91 || score === 94 || score === 97) {
+      --cent;
+      console.log(cent);
+      document.getElementById("level").innerHTML = `${cent} cent`;
+     } else if (score === 100) {
+      console.log("Congratulations! You achieved a perfect score - 100");
+     }
+    
+  setTimeout(function() {ladder.classList.remove("move-ladder")}, 2000);
+}
+
+function audioPool() {
   if (score >= 20 && score < 70) {
     let pitch = [...pitch2, 'A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
     console.log(pitch);
@@ -148,18 +149,16 @@ function increase() {
   if (score >= 70) {
     let pitch = pitch3;
     console.log(pitch);
-  } else if (score === 100) {
-    console.log("Congratulations! You achieved a perfect score - 100")
+  } else {
+    let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
+    console.log(pitch);
   }
 }
-
-
 
 function gameOver() {
   document.getElementById("gameOver").style.display = "block";
   document.getElementById("correctAnswer").innerHTML = `the answer is ${intonation}`
 }
-
 
 function replayAudio() {
   audio.currentTime = 0;
@@ -167,10 +166,7 @@ function replayAudio() {
 }
 
 // const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
-
-
 // const sharpButton = document.getElementById('sharp').addEventListener('click', answerSharp());
-
 
 function openModal() {
   document.getElementById("infoModal").style.display = "block";
@@ -179,6 +175,7 @@ function openModal() {
 // Close the Modal
 function closeModal() {
   document.getElementById("infoModal").style.display = "none";
+  document.getElementById("gameOver").style.display = "none";
 }
 
 // function grade() {
@@ -211,9 +208,6 @@ function closeModal() {
 //     console.log(cent);
 //   }
 // }
-
-
-
 
 // function grade() {
 //   if (

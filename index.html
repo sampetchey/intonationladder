@@ -39,8 +39,8 @@
         </div>
         <audio id="audio" src=""></audio>
         <div class="answer-button-area">
-            <button id="flat" class="btn btn--gray" onclick="answerFlat()">Flat</button>
-            <button id="sharp" class="btn btn--gray" onclick="answerSharp()">Sharp</button>
+            <button id="submit" class="btn btn--gray" onclick="answerFlat()" data-value="">Flat</button>
+            <button id="submit" class="btn btn--gray" onclick="answerSharp()" data-value="">Sharp</button>
         </div>
         <div class="info-area">
             <button id="info" class="btn--big btn--red" onclick="openModal()">
@@ -86,10 +86,15 @@
                     <i class="fa-solid fa-rotate-left"></i>
                 </button>
                 <br>
-                <span id="totalScore">Your total score was ""</span>
-                <br>
+                Your total score was:
+                <div class="answer-box">
+                    <h1><span class="score">0</span></h1>
+                    <h2><span id="level">30 cent</span>&nbsp;&nbsp;<span id="pitch">A3</span></h2>
+                </div>
+                <br><br>
                 PLAY AGAIN...
-                <button id="play" class="btn--big btn--green" onclick="play()">
+                <br>
+                <button id="play" class="btn--big btn--green" onclick="startGame(); play(); closeModal()">
                     <i class="fa-solid fa-play"></i>
                 </button> 
             </h3>
