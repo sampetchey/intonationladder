@@ -37,13 +37,14 @@ body {
 
 /* --------- result display --------*/
 
-.ladder {
+.ladder-area {
     grid-column: 3 / 4;
 }
 
-.ladder > img {
+.ladder {
     width: 250px;
     height: 180px;
+    transition-duration: 2;
     object-fit: none;
     object-position: bottom;
     overflow: hidden;
@@ -51,6 +52,13 @@ body {
     border-radius: 5%;
     margin-right: 20px;
     float: right;
+    
+}
+
+.move-ladder {
+    transition-property: object-position;
+    transition-duration: 2s;
+    object-position: top;
 }
 
 .answer-box {

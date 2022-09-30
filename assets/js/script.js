@@ -84,16 +84,19 @@ const playButton = document.getElementById('play');
   const pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
   let cent = 30;
   let score = 0;
+  let ladder = document.getElementById("ladder");
 
   // const randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
   // console.log(randomPitch);
 
   // const randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
   // console.log(randomIntonation);
-
+  
   function increase() {
+    
     score++;
     scoreBoard.textContent = score;
+    ladder.classList.add("move-ladder");
     if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 ||
       score === 12 || score === 14 || score === 16 || score === 18 || score === 20 ||
       score === 25 || score === 30 || score === 35 || score === 40 || score === 45 ||
@@ -109,6 +112,7 @@ const playButton = document.getElementById('play');
   }
 
   function play() {
+    ladder.classList.remove("move-ladder");
     var randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
     document.getElementById("pitch").innerHTML = `${randomPitch}`
 
