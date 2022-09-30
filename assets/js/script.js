@@ -59,18 +59,27 @@
 //     });
 //     return commands; //return full object with all commands
 //  }
+
+  document.onload = startGame
+
+  // <button id="flat" data-value="flat">
+
+  // playButton.addEventListener('click', startGame)
+
+ /* Set initial game state and start the game.
   
-  // 1. Have a list of all sounds
-  // 2. When game starts, load a random sound
-  // 3. When user clicks on play/replay button, play the sound.
-  // 4. When the user clicks on either flat/sharp, grade and go to next sound
-  
-  const playButton = document.getElementById('play');
-  
+  */
+ function startGame() {
+  scoreBoard.textContent = 0;
+  score = 0;
+ }
+
+const playButton = document.getElementById('play');
+
   const scoreBoard = document.querySelector('.score');
-  
-  
-     
+
+
+
   const intonation = ['sharp', 'flat'];  
   const pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
   let cent = 30;
@@ -81,11 +90,28 @@
 
   // const randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
   // console.log(randomIntonation);
-  
+
+  function increase() {
+    score++;
+    scoreBoard.textContent = score;
+    if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 ||
+      score === 12 || score === 14 || score === 16 || score === 18 || score === 20 ||
+      score === 25 || score === 30 || score === 35 || score === 40 || score === 45 ||
+      score === 50 || score === 55 || score === 60 || score === 65 || score === 70 ||
+      score === 73 || score === 76 || score === 79 || score === 82 || score === 85 ||
+      score === 88 || score === 91 || score === 94 || score === 97) {
+      --cent;
+      console.log(cent);
+      document.getElementById("level").innerHTML = `${cent} cent`
+      } else if (score === 100) {
+        console.log("Congratulations! You achieved a perfect score - 100")
+      }
+  }
+
   function play() {
     var randomPitch = pitch[Math.floor(Math.random()* pitch.length)];
     document.getElementById("pitch").innerHTML = `${randomPitch}`
-    
+
     var randomIntonation = intonation[Math.floor(Math.random()* intonation.length)];
     console.log(randomIntonation);
     document.getElementById("audio").src = `assets/audio/${randomIntonation}_${cent}cent_${randomPitch}.mp3`;
@@ -93,54 +119,57 @@
 
   }
 
-  function increase() {
-    score++;
-    scoreBoard.textContent = score;
-  }
-
-  const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
-  function answerFlat() {
-    let playerAnswer = 'flat'
-    console.log(playerAnswer);
-  }
-  const sharpButton = document.getElementById('sharp').addEventListener('click', answerSharp());
-  function answerSharp() {
-    let playerAnswer = 'sharp'
-    console.log(playerAnswer);
-  }
-
-  function grade() {
-    if (randomIntonation === playerAnswer) {
-      increase();
-      increaseLevel();
-      play();
-    }
-  }
-
-  function gradeFlat() {
-    if (randomIntonation === 'flat') {
-      increase()
-      increaseLevel()
-      play();
-    }
-  }
-
-  function gradeSharp() {
-    if (randomIntonation === 'sharp') {
-      increase()
-      increaseLevel()
-      play();
-    }
-  }
-
-  function increaseLevel() {
-    if (score = 2 || 4 || 6 || 8 || 10 || 15 || 20 || 25 || 30 || 35 || 40 || 45 || 50) {
-      cent - 1;
-      console.log(cent);
-    }
-  }
-
   
+
+  // const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
+    function answerFlat() {
+    let playerAnswer = 'flat'
+     console.log(playerAnswer);
+     if (randomIntonation = 'flat') {
+      increase();
+     }
+   }
+  // const sharpButton = document.getElementById('sharp').addEventListener('click', answerSharp());
+   function answerSharp() {
+     let playerAnswer = 'sharp'
+     console.log(playerAnswer);
+     if (randomIntonation = 'sharp') {
+      increase();
+     }
+   }
+
+  // function grade() {
+  //   if (randomIntonation === playerAnswer) {
+  //     increase();
+  //     increaseLevel();
+  //     play();
+  //   }
+  // }
+
+  // function gradeFlat() {
+  //   if (randomIntonation === 'flat') {
+  //     increase()
+  //     increaseLevel()
+  //     play();
+  //   }
+  // }
+
+  // function gradeSharp() {
+  //   if (randomIntonation === 'sharp') {
+  //     increase()
+  //     increaseLevel()
+  //     play();
+  //   }
+  // }
+
+  // function increaseLevel() {
+  //   if (score = 2 || 4 || 6 || 8 || 10 || 15 || 20 || 25 || 30 || 35 || 40 || 45 || 50) {
+  //     cent - 1;
+  //     console.log(cent);
+  //   }
+  // }
+
+
 
 
   // function grade() {
@@ -150,40 +179,24 @@
   //   return correct
   //   console.log(correct);
   // }
-    
-  
 
-  //document.onload = startGame
-  
-  // <button id="flat" data-value="flat">
-  
-  playButton.addEventListener('click', startGame)
-  
- /* Set initial game state and start the game.
-  
-  */
- function startGame() {
-    scoreBoard.textContent = 0;
-    score = 0;
-  
-  
 
-  // TODO: Load a random sound
+ // TODO: Load a random sound
   // Load a sound
-  nextSound()
-}
+//   nextSound()
+// }
 
   // Game state variables
   // let currentSoundIndex;
-  
-  
+
+
 
 
   // function grade(evt) {
   //   let clickedButton = evt.currentTarget
-  
+
   //   let currentSound = SOUNDS[currentSoundIndex]
-  
+
   //   if (clickedButton.dataset.value == currentSound.intonation) {
   //     // Increase score
   //     // Move to next sound
@@ -192,9 +205,9 @@
   //   else {
   //     // do something else
   //   }
-  
+
   // }
-  
+
 //   var answers = {
 //     'question': 'yes',
 //     'question1': 'no',
@@ -210,7 +223,7 @@
 //         $(this).removeClass("correct");
 //       }
 //   });
-    
+
 //   return score;
 // }
 
@@ -226,11 +239,12 @@
   // function nextSound() {
   //   let fileName = getFileName(currentSoundIndex)
   //   let filePath = 'assets/sounds/' + fileName
-  
+
   //   let sound = new Audio(filePath)
   // }
-  
+
   /* Get a valid filename for a sound file in the sounds directory.
   
   */
+
   
