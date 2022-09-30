@@ -60,7 +60,7 @@
 //     return commands; //return full object with all commands
 //  }
 
-document.onload = startGame
+
 
 // <button id="flat" data-value="flat">
 
@@ -69,54 +69,96 @@ document.onload = startGame
 /* Set initial game state and start the game.
  
  */
-function startGame() {
-  scoreBoard.textContent = 0;
-  score = 0;
-}
+
 
 
 
 // const playButton = document.getElementById('play');
-
+const flatButton = document.getElementById('flat-button');
+const sharpButton = document.getElementById('sharp-button');
+const ladder = document.getElementById("ladder");
 const scoreBoard = document.querySelector('.score');
-
-
-
-let intonation = ['sharp', 'flat'];
-let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
-let pitch2 = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
-let pitch3 = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4']
+const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
+//level 2
+const levelTwoPitchPool = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
+//level 3
+const levelThreePitchPool = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4'];
+const intonation = ['sharp', 'flat'];
+// level 1
+let pitch;
+let randomIntonation;
 let cent = 30;
 let score = 0;
-let ladder = document.getElementById("ladder");
+
+window.addEventListener('load', startGame);
+flatButton.addEventListener('click', answerFlat);
+sharpButton.addEventListener('click', answerSharp);
+
+function audioPool() {
+  if (score >= 20 && score < 70) {
+    return levelOnePitchPool && levelTwoPitchPool;
+  }
+  if (score >= 70) {
+    return levelThreePitchPool
+  } else {
+    return levelOnePitchPool
+  }
+}
+
+
 
 function play() {
   let randomPitch = pitch[Math.floor(Math.random() * pitch.length)];
   document.getElementById("pitch").innerHTML = `${randomPitch}`
   console.log(randomPitch);
-  let randomIntonation = intonation[Math.floor(Math.random() * intonation.length)];
+  randomIntonation = intonation[Math.floor(Math.random() * intonation.length)];
   console.log(randomIntonation);
   document.getElementById("audio").src = `assets/audio/${randomIntonation}_${cent}cent_${randomPitch}.mp3`;
   console.log(cent);
   audio.play();
 }
 
+// function answer(direction, ) {
+
+
+//   if (randomIntonation = 'flat') {
+//   play();
+//   increase();
+//   audioPool();
+// } else if (randomIntonation != 'flat') {
+//   gameOver();
+// }
+// }
+
+function startGame() {
+  scoreBoard.textContent = 0;
+  score = 0;
+  pitch = audioPool();
+  console.log(pitch);
+}
+
 function answerFlat() {
-    if (randomIntonation = 'flat') {
+  if (!randomIntonation) {
+    return
+  }
+  if (randomIntonation === 'flat') {
     play();
     increase();
-    audioPool();
-  } else if (randomIntonation != 'flat') {
+    pitch = audioPool();
+    } else {
     gameOver();
   }
 }
 
 function answerSharp() {
-    if (randomIntonation = 'sharp') {
+  if (!randomIntonation) {
+    return
+  }
+    if (randomIntonation === 'sharp') {
     play();
     increase();
-    audioPool();
-  } else if (randomIntonation != 'sharp') {
+    pitch = audioPool();
+    } else {
     gameOver();
   }
 }
@@ -141,21 +183,8 @@ function increase() {
   setTimeout(function() {ladder.classList.remove("move-ladder")}, 2000);
 }
 
-function audioPool() {
-  if (score >= 20 && score < 70) {
-    let pitch = [...pitch2, 'A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
-    console.log(pitch);
-  }
-  if (score >= 70) {
-    let pitch = pitch3;
-    console.log(pitch);
-  } else {
-    let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
-    console.log(pitch);
-  }
-}
-
 function gameOver() {
+  alert('gameover');
   document.getElementById("gameOver").style.display = "block";
   document.getElementById("correctAnswer").innerHTML = `the answer is ${intonation}`
 }
