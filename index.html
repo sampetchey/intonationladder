@@ -30,27 +30,53 @@
             <button id="play" class="btn--big btn--green" onclick="play()">
                 <i class="fa-solid fa-play"></i>
             </button>
-            <button class="btn--big btn--green">
-                <i class="fa-solid fa-rotate-left"></i>
-            </button>
+
             <button type="reset" class="btn--big btn--red">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
         <audio id="audio" src=""></audio>
         <div class="answer-button-area">
-            <button id = "flat" type="submit" class="btn btn--gray" onclick="answerFlat()">Flat</button>
-            <button id = "sharp" type="submit" class="btn btn--gray" onclick="answerSharp()">Sharp</button>
+            <button id="flat" type="submit" class="btn btn--gray" onclick="answerFlat()">Flat</button>
+            <button id="sharp" type="submit" class="btn btn--gray" onclick="answerSharp()">Sharp</button>
         </div>
         <div class="info-area">
-            <button id="info" class="btn--big btn--red">
+            <button id="info" class="btn--big btn--red" onclick="openModal()">
                 <i class="fa-solid fa-circle-info"></i>
             </button>
         </div>
     </div>
+    <div id = "infoModal" class="info-modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="info-modal-content">
+        
+            <h3>to start, click<br></h3>
+            <button id="play" class="btn--big btn--green" onclick="play()">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <h4>Is the SECOND pitch played on the piano<br>sharper of flatter than the first?</h4>
+            <h3>Answer using the 'Flat' or 'Sharp' buttons
+                <br><br>
+                Consecutive correct answers add 1 point, maximum score is 100
+            </h3>
+            <h4>
+                <br>
+                A 'cent' is 1/100 of a semitone
+                <br>
+                The cent level decreases by 1:
+                <br>
+                30-21cent - with 2 correct
+                <br>
+                20-11cent - with 5 correct
+                <br>
+                10-1cent - with 3 correct
+            </h4>
+        </div>
+    </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
     <!-- <script src="assets/js/script2.js" type="module"></script> -->
 </body>

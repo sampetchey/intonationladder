@@ -81,7 +81,9 @@ const playButton = document.getElementById('play');
 
 
   const intonation = ['sharp', 'flat'];  
-  const pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
+  let pitch = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3', 'G5'];
+  let pitch2 = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
+  let pitch3 = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4']
   let cent = 30;
   let score = 0;
   let ladder = document.getElementById("ladder");
@@ -106,7 +108,14 @@ const playButton = document.getElementById('play');
       --cent;
       console.log(cent);
       document.getElementById("level").innerHTML = `${cent} cent`
-      } else if (score === 100) {
+      } if (score >= 20 && score < 70) {
+        let pitch = [...pitch2, 'A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
+        console.log(pitch);
+      } if (score >= 70) {
+        let pitch = pitch3;
+        console.log(pitch);
+      }
+      else if (score === 100) {
         console.log("Congratulations! You achieved a perfect score - 100")
       }
   }
@@ -122,8 +131,6 @@ const playButton = document.getElementById('play');
     audio.play();
 
   }
-
-  
 
   // const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
     function answerFlat() {
@@ -141,6 +148,15 @@ const playButton = document.getElementById('play');
       increase();
      }
    }
+
+   function openModal() {
+    document.getElementById("infoModal").style.display = "block";
+  }
+  
+  // Close the Modal
+  function closeModal() {
+    document.getElementById("infoModal").style.display = "none";
+  }
 
   // function grade() {
   //   if (randomIntonation === playerAnswer) {
