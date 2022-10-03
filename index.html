@@ -33,7 +33,7 @@
             <button class="btn--big btn--green" onclick="replayAudio()">
                 <i class="fa-solid fa-rotate-left"></i>
             </button>
-            <button type="reset" class="btn--big btn--red">
+            <button id = "quit-button" class="btn--big btn--red">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -50,29 +50,50 @@
     </div>
     <div id = "infoModal" class="info-modal">
         <span class="close cursor" onclick="closeModal()">&times;</span>
-        <div class="info-modal-content">
-        
-            <h3>to start, click<br></h3>
-            <button id="play" class="btn--big btn--green" onclick="play()">
-                <i class="fa-solid fa-play"></i>
-            </button>
-            <h4>Is the SECOND pitch played on the piano<br>sharper of flatter than the first?</h4>
-            <h3>Answer using the 'Flat' or 'Sharp' buttons
-                <br><br>
-                Consecutive correct answers add 1 point, maximum score is 100
-            </h3>
-            <h4>
-                <br>
-                A 'cent' is 1/100 of a semitone
-                <br>
-                The cent level decreases by 1:
-                <br>
-                30-21cent - with 2 correct
-                <br>
-                20-11cent - with 5 correct
-                <br>
-                10-1cent - with 3 correct
-            </h4>
+        <div class="info-modal-content">        
+            <div class="controls-info">
+                <div>
+                    <i class="fa-solid fa-play btn--big btn--green"></i>
+                    <h3>'Play' button</h3>
+                    <p>Generates a new random <br>
+                        audio file at the<br> 
+                        current cent level</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-rotate-left btn--big btn--green"></i>
+                    <h3>'Repeat' button</h3>
+                    <p>Repeat-plays the<br>
+                        same audio file</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-xmark btn--big btn--red"></i>
+                    <h3>'Quit' button</h3>
+                    <p>Resets the score-board</p>
+                </div>
+            </div>
+            
+            <h3>Instructions:<br></h3>
+            <ol>
+                <li>Once page has loaded click 'Play'.</li>                
+                <li>A randomly selected audio file will play.<br>
+                    The second note will be sharper of flatter than the first by 30cent.</li>
+                <li>Using the 'Flat' or 'Sharp' buttons, select whether <br>
+                    the second pitch is flatter or sharper than the first</li>
+                <li>If your answer is correct the ladder will move and score increase</li>
+                <li>A new audio file will immediately sound. Answer again.</li>
+                <li>Correct answers build the score - maximum 100. An incorrect answer is Game Over</li>
+                <li>The cent level decreases as the score increases, shown on the score board.<br>
+                    A 'cent' is 1/100 of a semitone.<br>
+                    The cent level decreases by 1:
+                    <br>
+                    30-21cent - with 2 correct
+                    <br>
+                    20-11cent - with 5 correct
+                    <br>
+                    10-1cent - with 3 correct
+                </li>
+            </ol>
+            
         </div>
     </div>
     <div id="gameOver" class="info-modal">
@@ -105,7 +126,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    <!-- <script src="assets/js/script2.js" type="module"></script> -->
+    
 </body>
 
 </html>

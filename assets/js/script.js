@@ -74,8 +74,9 @@
 
 
 // const playButton = document.getElementById('play');
-const flatButton = document.getElementById('flat-button');
-const sharpButton = document.getElementById('sharp-button');
+const flatButton = document.getElementById("flat-button");
+const sharpButton = document.getElementById("sharp-button");
+const quitButton = document.getElementById("quit-button");
 const ladder = document.getElementById("ladder");
 const scoreBoard = document.querySelector('.score');
 const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
@@ -91,6 +92,7 @@ let cent = 30;
 let score = 0;
 
 window.addEventListener('load', startGame);
+quitButton.addEventListener('click', startGame);
 flatButton.addEventListener('click', answerFlat);
 sharpButton.addEventListener('click', answerSharp);
 
@@ -104,8 +106,6 @@ function audioPool() {
     return levelOnePitchPool
   }
 }
-
-
 
 function play() {
   let randomPitch = pitch[Math.floor(Math.random() * pitch.length)];
@@ -145,7 +145,7 @@ function answerFlat() {
     play();
     increase();
     pitch = audioPool();
-    } else {
+  } else {
     gameOver();
   }
 }
@@ -154,11 +154,11 @@ function answerSharp() {
   if (!randomIntonation) {
     return
   }
-    if (randomIntonation === 'sharp') {
+  if (randomIntonation === 'sharp') {
     play();
     increase();
     pitch = audioPool();
-    } else {
+  } else {
     gameOver();
   }
 }
@@ -167,26 +167,29 @@ function increase() {
   score++;
   scoreBoard.textContent = score;
   ladder.classList.add("move-ladder");
-  if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 || 
-    score === 12 || score === 14 || score === 16 || score === 18 || score === 20 || 
-    score === 25 || score === 30 || score === 35 || score === 40 || score === 45 || 
-    score === 50 || score === 55 || score === 60 || score === 65 || score === 70 || 
+  if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 ||
+    score === 12 || score === 14 || score === 16 || score === 18 || score === 20 ||
+    score === 25 || score === 30 || score === 35 || score === 40 || score === 45 ||
+    score === 50 || score === 55 || score === 60 || score === 65 || score === 70 ||
     score === 73 || score === 76 || score === 79 || score === 82 || score === 85 ||
-     score === 88 || score === 91 || score === 94 || score === 97) {
-      --cent;
-      console.log(cent);
-      document.getElementById("level").innerHTML = `${cent} cent`;
-     } else if (score === 100) {
-      console.log("Congratulations! You achieved a perfect score - 100");
-     }
-    
-  setTimeout(function() {ladder.classList.remove("move-ladder")}, 2000);
+    score === 88 || score === 91 || score === 94 || score === 97) {
+    --cent;
+    console.log(cent);
+    document.getElementById("level").innerHTML = `${cent} cent`;
+  } else if (score === 100) {
+    console.log("Congratulations! You achieved a perfect score - 100");
+  }
+  setTimeout(function () {
+    ladder.classList.remove("move-ladder")
+  }, 2000);
 }
 
 function gameOver() {
   alert('gameover');
   document.getElementById("gameOver").style.display = "block";
-  document.getElementById("correctAnswer").innerHTML = `the answer is ${intonation}`
+  scoreBoard.textContent = score;
+  document.getElementById("level").innerHTML = `${cent} cent`;
+  // document.getElementById("correctAnswer").innerHTML = `the answer is ${intonation}`
 }
 
 function replayAudio() {
