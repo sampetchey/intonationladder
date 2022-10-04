@@ -133,8 +133,10 @@ function play() {
 function startGame() {
   scoreBoard.textContent = 0;
   score = 0;
+  cent = 30;
   pitch = audioPool();
   console.log(pitch);
+  document.getElementById("level").innerHTML = `${cent} cent`;
 }
 
 function answerFlat() {
@@ -174,7 +176,6 @@ function increase() {
     score === 73 || score === 76 || score === 79 || score === 82 || score === 85 ||
     score === 88 || score === 91 || score === 94 || score === 97) {
     --cent;
-    console.log(cent);
     document.getElementById("level").innerHTML = `${cent} cent`;
   } else if (score === 100) {
     console.log("Congratulations! You achieved a perfect score - 100");
