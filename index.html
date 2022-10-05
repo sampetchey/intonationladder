@@ -17,7 +17,7 @@
 <body>
     <div class="game-area">
         <div class="logo">
-            <img src="assets/images/intonation-ladder_logo 3.png" alt="logo">
+            <img src="assets/images/intonation-ladder_logo 3.png" alt="Intonation Ladder logo">
         </div>
         <div class="ladder-area">
             <img id="ladder" class="ladder" src="assets/images/ladder.png" alt="ladder">
@@ -33,13 +33,13 @@
             <button class="btn--big btn--green" onclick="replayAudio()">
                 <i class="fa-solid fa-rotate-left"></i>
             </button>
-            <button id = "quit-button" class="btn--big btn--red">
+            <button id="quit-button" class="btn--big btn--red">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
         <audio id="audio" src=""></audio>
         <div class="answer-button-area">
-            <button id="flat-button" class="btn btn--gray"  data-value="flat">Flat</button>
+            <button id="flat-button" class="btn btn--gray" data-value="flat">Flat</button>
             <button id="sharp-button" class="btn btn--gray" data-value="sharp">Sharp</button>
         </div>
         <div class="info-area">
@@ -48,15 +48,15 @@
             </button>
         </div>
     </div>
-    <div id = "infoModal" class="info-modal">
+    <div id="infoModal" class="info-modal">
         <span class="close cursor" onclick="closeModal()">&times;</span>
-        <div class="info-modal-content">        
+        <div class="info-modal-content">
             <div class="controls-info">
                 <div>
                     <i class="fa-solid fa-play btn--big btn--green"></i>
                     <h3>'Play' button</h3>
                     <p>Generates a new random <br>
-                        audio file at the<br> 
+                        audio file at the<br>
                         current cent level</p>
                 </div>
                 <div>
@@ -71,10 +71,10 @@
                     <p>Resets the score-board</p>
                 </div>
             </div>
-            
+
             <h3>Instructions:<br></h3>
             <ol>
-                <li>Once page has loaded click 'Play'.</li>                
+                <li>Once page has loaded click 'Play'.</li>
                 <li>A randomly selected audio file will play.<br>
                     The second note will be sharper of flatter than the first by 30cent.</li>
                 <li>Using the 'Flat' or 'Sharp' buttons, select whether <br>
@@ -93,32 +93,23 @@
                     10-1cent - with 3 correct
                 </li>
             </ol>
-            
+
         </div>
     </div>
     <div id="gameOver" class="info-modal">
-        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <span class="close cursor" onclick="closeModal(), startGame()">&times;</span>
         <div class="info-modal-content">
-            <h3>Ahh no! That's not right
-                <br>
-                <span id="correctAnswer">the answer is ""</span>
-                listen again... 
-                <button class="btn--big btn--green" onclick="replayAudio()">
-                    <i class="fa-solid fa-rotate-left"></i>
-                </button>
-                <br>
-                Your total score was:
-                <div class="answer-box">
-                    <h1><span class="score">0</span></h1>
-                    <h2><span id="level">30 cent</span>&nbsp;&nbsp;<span id="pitch">A3</span></h2>
-                </div>
-                <br><br>
-                PLAY AGAIN...
-                <br>
-                <button id="play" class="btn--big btn--green" onclick="startGame(); play(); closeModal()">
-                    <i class="fa-solid fa-play"></i>
-                </button> 
-            </h3>
+            <h3 id="correctAnswer"></h3>
+            <br>
+            <h2>Total score:</h2><h1 id="total"></h1>
+            <button class="btn--big btn--green" onclick="replayAudio()">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
+            <br>
+            <h2>PLAY AGAIN...</h2>
+            <button id="play" class="btn--big btn--green" onclick="startGame(); play(); closeModal()">
+                <i class="fa-solid fa-play"></i>
+            </button>
         </div>
     </div>
 
@@ -126,7 +117,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    
+
 </body>
 
 </html>

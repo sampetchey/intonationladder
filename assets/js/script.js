@@ -119,8 +119,6 @@ function play() {
 }
 
 // function answer(direction, ) {
-
-
 //   if (randomIntonation = 'flat') {
 //   play();
 //   increase();
@@ -178,7 +176,8 @@ function increase() {
     --cent;
     document.getElementById("level").innerHTML = `${cent} cent`;
   } else if (score === 100) {
-    console.log("Congratulations! You achieved a perfect score - 100");
+    alert("Congratulations! You achieved a perfect score of 100. Keep going, see how far you can go at 1 cent...");
+    console.log("Congratulations! You achieved a perfect score of 100");
   }
   setTimeout(function () {
     ladder.classList.remove("move-ladder")
@@ -186,10 +185,15 @@ function increase() {
 }
 
 function gameOver() {
-  alert('gameover');
+  // alert('gameover');
   document.getElementById("gameOver").style.display = "block";
-  scoreBoard.textContent = score;
-  document.getElementById("level").innerHTML = `${cent} cent`;
+  
+  document.getElementById("correctAnswer").innerHTML = `Ahh no! That's not right. The second note was ${randomIntonation}...`;
+  document.getElementById("total").innerHTML = `${score}`;
+  // document.getElementsById("finalScore").innerHTML = `Your total score was ${score}`;
+  //document.getElementById("level").innerHTML = `${cent} cent`;
+  console.log(score);
+  // scoreBoard.textContent = score;
   // document.getElementById("correctAnswer").innerHTML = `the answer is ${intonation}`
 }
 
