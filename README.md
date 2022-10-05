@@ -1,3 +1,5 @@
+![](assets/images/game-layout.png)
+
 ## Site Goals
 
 - Intonation Ladder is an ear training, music education game. Competence at comparing pitches is fundamental to the ability of a musician. Intonation Ladder measures how well a player can recognise a pitch that is slightly sharp or flat and helps them improve.
@@ -48,32 +50,40 @@
 
   - The layout adapts to different screen sizes. Interactive 'flat' and 'sharp' buttons are positioned in the area of a player's thumb, keeping the score and progress info visible further up the screen.
 
-- ### Design
+![](assets/images/mobile-layout.png)
 
-- #### Logo
+## Design
+
+### Logo
 
 ![](assets/images/intonation-ladder_logo.png)
 
 
-  - The Intonation Ladder logo was designed using Canva. Its main font is 'Fredoka' interspaced with familiar sharp/flat music symbols replacing the 't's and 'b's. These were created using the 'Opus Plain Chords Std' font on Microsoft Word, exporting them as images and inserting them into the logo. 
+  The Intonation Ladder logo was designed using Canva. Its main font is 'Fredoka' interspaced with familiar sharp/flat music symbols replacing the 't's and 'b's. These were created using the 'Opus Plain Chords Std' font on Microsoft Word, exporting them as images and inserting them into the logo. 
 
-  - The name and logo is an important way a new user can quickly see and understand the purpose of the game. The two words 'intonation' and 'ladder', encapsulate all the game is designed to do, with the familiar sharp and flat symbols reinforcing the definition of the word 'intonation'.
+  The name and logo is an important way a new user can quickly see and understand the purpose of the game. The two words 'intonation' and 'ladder', encapsulate all the game is designed to do, with the familiar sharp and flat symbols reinforcing the definition of the word 'intonation'.
 
-- #### Colour scheme
+### Colour scheme
 
-  - Intonation Ladder's color scheme was selected from various palette options provided on Canva. The bright scheme, based on primary colours, provides a distinctive and memorable brand in the style of a children's game. This helps the game feel encouragingly simple (despite a high score being rather difficult). Players feeling like this is a game rather than a test are more likely to keep playing and improve further.
+  Intonation Ladder's color scheme was selected from various palette options provided on Canva. The bright scheme, based on primary colours, provides a distinctive and memorable brand in the style of a children's game. This helps the game feel encouragingly simple (despite a high score being rather difficult). Players feeling like this is a game rather than a test are more likely to keep playing and improve further.
 
-- #### Structure
+### Structure
 
-  - The structure and layout of the site is deliberately simple. Beneath the logo is an image of a ladder, the game's symbol of progression, and a score board. Recognisable icons of play, repeat and cancel control the game. Player answer buttons are large, relatively close and at the bottom of the screen.
+  The structure and layout of the site is deliberately simple. Beneath the logo is an image of a ladder, the game's symbol of progression, and a score board. Recognisable icons of play, repeat and cancel control the game. Player answer buttons are large, relatively close and at the bottom of the screen.
 
-  - Game information and instructions are hidden on load. The opening screen is intuitive enough for a player to work out immediately what they are to do. Where clarity or more information is required, the info icon opens a modal with information and instructions.
+![](assets/images/ladder-img.png) ![](assets/images/score-board.png) ![](assets/images/control-buttons.png) ![](assets/images/player-buttons.png)
 
-  - A hidden 'Game Over' page appears when a player makes the wrong answer. It shows the final score, enables a player to re-hear the audio they just got wrong and start another game.
+  Game information and instructions are hidden on load. The opening screen is intuitive enough for a player to work out immediately what they are to do. Where clarity or more information is required, the info icon opens a modal with information and instructions.
 
-- ### Programming Design
+![](assets/images/info-modal.png)
 
-  - With a simple visual layout, the complexity of Intonation Ladder lies in its underlying Javascript code. The programming logic can be broken into the following steps and functions:
+  A 'game over' page appears when a player makes the wrong answer. It shows the final score, enables a player to re-hear the audio they just got wrong and start another game.
+
+![](assets/images/total-score.png)
+
+## Programming Design
+
+  With a simple visual layout, the complexity of Intonation Ladder lies in its underlying Javascript code. The programming logic can be broken into the following steps and functions:
 
   1. On page load:
     a.  Set score and cent level to 0.
@@ -167,28 +177,22 @@
   }, 2000);
 }
   ```
-  6. When a player makes a wrong answer, a final score modal appears. Players can re-listen to the audio file they got wrong using the 'repeat' button. Players can then play again with a simple click of the play button.
+  6. When a player makes a wrong answer, a final score modal appears. Players can re-listen to the audio file they got wrong, using the 'repeat' button. Players can play again with a simple click of the play button.
   ```
-
-  1. filter from the string and .play() a '30cent' audio file
-  2. enable the 'repeat' button to replay the same selected audio file, any number of times 
-  3. player clicks button 'flat' or 'sharp'
-  4. if 'flat' button is clicked && file name contains 'flat' OR if 'sharp' button is clicked && file name contains 'sharp' - return true
-  5. if true:
-       ladder image goes 'up' 
-       a new audio file, filtered from '30cent' is played
-  6. with two 'true' answers, change filter to '29cent'
-  7. decrease cent level (increasing difficulty) with every two questions
-  8. between 20-11cent, play 5 audio files
-  9. between 10-1cent, play 3 audio files
-  10. maximum possible score is 100
-  11. if player answers 'false' display result in a lightbox appears containing:
-          'incorrect'
-           the correct answer was ...
-           repeat button to listen
-           display total score...
-           play again button
-           quit button
+  function gameOver() {
+  document.getElementById("gameOver").style.display = "block";
+  document.getElementById("correctAnswer").innerHTML = `Oh no! That's not right. The second note was ${randomIntonation}...`;
+  document.getElementById("total").innerHTML = `${score}`;
+  console.log(score);
+}
+  ```
+  7. Additionally, without interrupting the game, a player can click the info button. A modal appears with detailed instructions.
+  ```
+  function openModal() {
+  document.getElementById("infoModal").style.display = "block";
+}
+  ```
+## User Experience Research
 
   
 
