@@ -16,7 +16,7 @@
 
 <body>
     <div class="game-area">
-        <div class="logo">
+        <div id="logo" class="logo">
             <img src="assets/images/intonation-ladder_logo.png" alt="Intonation Ladder logo">
         </div>
         <div class="ladder-area">
@@ -51,7 +51,11 @@
     <div id="infoModal" class="info-modal">
         <span class="close cursor" onclick="closeModal()">&times;</span>
         <div class="info-modal-content">
+            <div>
+                <img class="info-title" src="assets/images/intonation-ladder_logo2.png" alt="Intonation Ladder title">
+            </div>
             <div class="controls-info">
+                
                 <div>
                     <i class="fa-solid fa-play btn--big btn--green"></i>
                     <h3>'Play' button</h3>
@@ -79,7 +83,7 @@
                     The second note will be sharper of flatter than the first by 30cent.</li>
                 <li>Using the 'Flat' or 'Sharp' buttons, select whether <br>
                     the second pitch is flatter or sharper than the first</li>
-                <li>If your answer is correct the ladder will move and score increase</li>
+                <li>If your answer is correct the score will increase</li>
                 <li>A new audio file will immediately sound. Answer again.</li>
                 <li>Correct answers build the score - maximum 100. An incorrect answer is Game Over</li>
                 <li>The cent level decreases as the score increases, shown on the score board.<br>
@@ -91,6 +95,8 @@
                     20-11cent - with 5 correct
                     <br>
                     10-1cent - with 3 correct
+                    <br>
+                    The cent level stays at 1 from a score of 97 onwards
                 </li>
             </ol>
 

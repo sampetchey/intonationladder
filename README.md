@@ -52,7 +52,7 @@
 
 - #### Logo
 
-![](https://github.com/sampetchey/intonationladder/blob/main/assets/images/intonation-ladder_logo.png)
+![](assets/images/intonation-ladder_logo.png)
 
 
   - The Intonation Ladder logo was designed using Canva. Its main font is 'Fredoka' interspaced with familiar sharp/flat music symbols replacing the 't's and 'b's. These were created using the 'Opus Plain Chords Std' font on Microsoft Word, exporting them as images and inserting them into the logo. 

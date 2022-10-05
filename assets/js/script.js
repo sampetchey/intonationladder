@@ -79,6 +79,9 @@ const sharpButton = document.getElementById("sharp-button");
 const quitButton = document.getElementById("quit-button");
 const ladder = document.getElementById("ladder");
 const scoreBoard = document.querySelector('.score');
+const logo = document.getElementById("logo");
+const logoLabel = document.getElementById("headingLabel");
+
 const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
 //level 2
 const levelTwoPitchPool = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
@@ -95,6 +98,12 @@ window.addEventListener('load', startGame);
 quitButton.addEventListener('click', startGame);
 flatButton.addEventListener('click', answerFlat);
 sharpButton.addEventListener('click', answerSharp);
+logo.addEventListener('mouseover', headingLabel);
+
+function headingLabel() {
+  console.log("Intonation Ladder")
+  logoLabel.classList.add("heading-label").innerHTML = "Intonation Ladder";
+}
 
 function audioPool() {
   if (score >= 20 && score < 70) {
