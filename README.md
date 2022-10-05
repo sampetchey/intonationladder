@@ -1,10 +1,10 @@
 ## Site Goals
 
-- Intonation Ladder is a an ear training and music education game. Competence at comparing pitches is fundamental to the ability of a musician. Intonation Ladder measures how well a player can recognise a pitch that is slightly sharp or flat and helps them improve.
+- Intonation Ladder is an ear training, music education game. Competence at comparing pitches is fundamental to the ability of a musician. Intonation Ladder measures how well a player can recognise a pitch that is slightly sharp or flat and helps them improve.
 
-- Hearing intonation can help tune musical instruments, improve performance and rectify tuning issues. As the margin between pitches narrow, sharp or flat can easily be mistaken for the other. Ear training can make a real difference at helping musicians in this area.
+- Hearing intonation can help tune musical instruments, improve performance and rectify tuning issues. As the margin between pitches narrow, sharp or flat can be easily be mistaken. Ear training can make a significant difference at helping musicians in this area.
 
-- Intonation Ladder uses a simple, interactive layout. Instructions and responses are intuitive and presented with a bright, positive design. An ascending ladder animation represents progression and success. Familiar icons guide the player into action or provide information and help when needed.
+- Intonation Ladder uses a simple, interactive layout. Instructions and responses are intuitive and presented in a bright, positive design. An ascending ladder animation represents progression and success. Familiar icons guide the player into action or provide information and help when needed.
 
 - Intonation Ladder contains 1000 pre-recorded audio files. Each one consists of two notes played on the piano, with the second note slightly sharper or flatter than the first. The audio files are selected at random and grouped into levels or 'cents'. 1 cent = 1/100 of a semitone. The game becomes progressively more difficult as a player's score increases. The maximum possible score is 100, with the last three questions containing pitches just 1 cent apart. 
 
@@ -12,7 +12,7 @@
 
 - Intonation Ladder would sit well alongside other ear training games in a music education website. It could be marketed to school music classes as a fun and effective way of improving listening skills.
 
-- The site is compatible and responsive to all screen sizes. 
+- The site is responsive to all screen sizes. 
 
 ## User Experience (UX)
 
@@ -51,6 +51,9 @@
 - ### Design
 
 - #### Logo
+
+![](https://github.com/sampetchey/intonationladder/blob/main/assets/images/intonation-ladder_logo.png)
+
 
   - The Intonation Ladder logo was designed using Canva. Its main font is 'Fredoka' interspaced with familiar sharp/flat music symbols replacing the 't's and 'b's. These were created using the 'Opus Plain Chords Std' font on Microsoft Word, exporting them as images and inserting them into the logo. 
 
