@@ -100,11 +100,8 @@ flatButton.addEventListener('click', answerFlat);
 sharpButton.addEventListener('click', answerSharp);
 logo.addEventListener('mouseover', headingLabel);
 
-function headingLabel() {
-  console.log("Intonation Ladder")
-  logoLabel.classList.add("heading-label").innerHTML = "Intonation Ladder";
-}
 
+// different size audio pools reflect how many questions are being asked at specific cent levels.
 function audioPool() {
   if (score >= 20 && score < 70) {
     return levelOnePitchPool && levelTwoPitchPool;
@@ -116,6 +113,7 @@ function audioPool() {
   }
 }
 
+// randomly select an audio file by generating the three file properties, intonation, cent level and pitch.
 function play() {
   let randomPitch = pitch[Math.floor(Math.random() * pitch.length)];
   document.getElementById("pitch").innerHTML = `${randomPitch}`
@@ -127,16 +125,7 @@ function play() {
   audio.play();
 }
 
-// function answer(direction, ) {
-//   if (randomIntonation = 'flat') {
-//   play();
-//   increase();
-//   audioPool();
-// } else if (randomIntonation != 'flat') {
-//   gameOver();
-// }
-// }
-
+// start of game status.
 function startGame() {
   scoreBoard.textContent = 0;
   score = 0;
@@ -146,6 +135,7 @@ function startGame() {
   document.getElementById("level").innerHTML = `${cent} cent`;
 }
 
+// flat/sharp answer buttons determine correct or incorrect answers
 function answerFlat() {
   if (!randomIntonation) {
     return
@@ -172,6 +162,7 @@ function answerSharp() {
   }
 }
 
+// increase the score by 1, decrease the cent level when specific scores are reached and add ladder animation
 function increase() {
   score++;
   scoreBoard.textContent = score;
@@ -193,139 +184,27 @@ function increase() {
   }, 2000);
 }
 
+// display the final score on the game over modal and buttons to try again
 function gameOver() {
-  // alert('gameover');
   document.getElementById("gameOver").style.display = "block";
-  
-  document.getElementById("correctAnswer").innerHTML = `Ahh no! That's not right. The second note was ${randomIntonation}...`;
+  document.getElementById("correctAnswer").innerHTML = `Oh no! That's not right. The second note was ${randomIntonation}...`;
   document.getElementById("total").innerHTML = `${score}`;
-  // document.getElementsById("finalScore").innerHTML = `Your total score was ${score}`;
-  //document.getElementById("level").innerHTML = `${cent} cent`;
   console.log(score);
-  // scoreBoard.textContent = score;
-  // document.getElementById("correctAnswer").innerHTML = `the answer is ${intonation}`
 }
 
+// when 'repeat' is clicked, replay the same audio file from the beginning
 function replayAudio() {
   audio.currentTime = 0;
   audio.play();
 }
 
-// const flatButton = document.getElementById('flat').addEventListener('click', answerFlat());
-// const sharpButton = document.getElementById('sharp').addEventListener('click', answerSharp());
-
+// open the info modal
 function openModal() {
   document.getElementById("infoModal").style.display = "block";
 }
 
-// Close the Modal
+// close the info or game modal
 function closeModal() {
   document.getElementById("infoModal").style.display = "none";
   document.getElementById("gameOver").style.display = "none";
 }
-
-// function grade() {
-//   if (randomIntonation === playerAnswer) {
-//     increase();
-//     increaseLevel();
-//     play();
-//   }
-// }
-
-// function gradeFlat() {
-//   if (randomIntonation === 'flat') {
-//     increase()
-//     increaseLevel()
-//     play();
-//   }
-// }
-
-// function gradeSharp() {
-//   if (randomIntonation === 'sharp') {
-//     increase()
-//     increaseLevel()
-//     play();
-//   }
-// }
-
-// function increaseLevel() {
-//   if (score = 2 || 4 || 6 || 8 || 10 || 15 || 20 || 25 || 30 || 35 || 40 || 45 || 50) {
-//     cent - 1;
-//     console.log(cent);
-//   }
-// }
-
-// function grade() {
-//   if (
-//     document.getElementsByClassName("answer-button-area").button.data-type === randomIntonation;
-//   )
-//   return correct
-//   console.log(correct);
-// }
-
-
-// TODO: Load a random sound
-// Load a sound
-//   nextSound()
-// }
-
-// Game state variables
-// let currentSoundIndex;
-
-
-
-
-// function grade(evt) {
-//   let clickedButton = evt.currentTarget
-
-//   let currentSound = SOUNDS[currentSoundIndex]
-
-//   if (clickedButton.dataset.value == currentSound.intonation) {
-//     // Increase score
-//     // Move to next sound
-//     nextSound()
-//   }
-//   else {
-//     // do something else
-//   }
-
-// }
-
-//   var answers = {
-//     'question': 'yes',
-//     'question1': 'no',
-// };
-
-// function getScore(el) {
-//   var score = 0;
-//   $("input[id^='question'").each(function(){
-//       if (answers[this.id] === this.value){
-//         score += 1;    
-//         $(this).addClass("correct");
-//       } else {
-//         $(this).removeClass("correct");
-//       }
-//   });
-
-//   return score;
-// }
-
-// var score = 5;
-// document.write.getElementById('score').innerhtml = score;
-
-// $('input').on('keyup', function(){
-//   $('#score').text('score: ' + getScore());
-// });
-
-
-
-// function nextSound() {
-//   let fileName = getFileName(currentSoundIndex)
-//   let filePath = 'assets/sounds/' + fileName
-
-//   let sound = new Audio(filePath)
-// }
-
-/* Get a valid filename for a sound file in the sounds directory.
-
-*/

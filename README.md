@@ -81,18 +81,18 @@
   2. When 'Play' is clicked:
     a.  Randomly generate an audio file.
       - The audio file is randomly generated using arrays of the file atributes.
-      - For example: `assets/audio/flat_21cent_E5.mp3`
+      - For example: ```assets/audio/flat_21cent_E5.mp3```
       - The file attributes are Intonation: [sharp, flat], Cent (the game begins with the at 30) and the pitch e.g. 'A4'.
       - A pool of 9 pitches were recorded, both sharp and flat, at Cent levels 30-21; 25 at levels 20-11 and 12 at levels 10-1.
       - With this information the following arrays were written. Using arrays of file information simplifies the code. 
       - Alternatively, 1000 audio files could have been written into the code and it would have got very complicated.
-            
-     `const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
+      ```
+      const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
       const levelTwoPitchPool = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
       const levelThreePitchPool = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4'];
       const intonation = ['sharp', 'flat'];
-      let cent = 30;`
-
+      let cent = 30;
+      ```
       - With these objects of arrays created, randomly selected properties can be inserted into the file name each time 'Play' is clicked. The file sounds immediately.
       ```
       function play() {
@@ -114,9 +114,9 @@
       }
       ```
   4. To answer, the player selects 'Flat' or 'Sharp'.
-    a. Each button determines if the randomIntonation is sharp or flat. 
+    a. The functions called by the button depends upon if it matches the randomIntonation value. 
     b. If correct, functions are called to increase the score, level and generate a new audio file.
-    c. If incorrect, the gameOver function is called:
+    c. If incorrect, the gameOver() function is called:
       ```
       function answerFlat() {
         if (!randomIntonation) {
@@ -144,6 +144,31 @@
       }
       }
 
+  5. With wach correct answer the score increases by 1. The cent level decreases, depending on the score. In this way, practice can target the key areas of practice between 20-10 cent. In the easier 30-21 cent section, just two questions/audio files are played per cent level. This helps he player progress more quickly. In addition, an ascending ladder animation is triggered, created using a 'bottom' to 'top' image transition over 2 seconds. When the score reaches 100, a congratulations alert celebrates the players achievement and encourages them to keep going with questions at just 1 cent.
+  ```
+  function increase() {
+  score++;
+  scoreBoard.textContent = score;
+  ladder.classList.add("move-ladder");
+  if (score === 2 || score === 4 || score === 6 || score === 8 || score === 10 ||
+    score === 12 || score === 14 || score === 16 || score === 18 || score === 20 ||
+    score === 25 || score === 30 || score === 35 || score === 40 || score === 45 ||
+    score === 50 || score === 55 || score === 60 || score === 65 || score === 70 ||
+    score === 73 || score === 76 || score === 79 || score === 82 || score === 85 ||
+    score === 88 || score === 91 || score === 94 || score === 97) {
+    --cent;
+    document.getElementById("level").innerHTML = `${cent} cent`;
+  } else if (score === 100) {
+    alert("Congratulations! You achieved a perfect score of 100. Keep going, see how far you can go at 1 cent...");
+    console.log("Congratulations! You achieved a perfect score of 100");
+  }
+  setTimeout(function () {
+    ladder.classList.remove("move-ladder")
+  }, 2000);
+}
+  ```
+  6. When a player makes a wrong answer, a final score modal appears. Players can re-listen to the audio file they got wrong using the 'repeat' button. Players can then play again with a simple click of the play button.
+  ```
 
   1. filter from the string and .play() a '30cent' audio file
   2. enable the 'repeat' button to replay the same selected audio file, any number of times 

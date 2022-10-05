@@ -5,7 +5,7 @@ body {
     text-align: center;
 }
 
-/* --------- Game layout --------*/
+/* --------- game layout --------*/
 
 .game-area {
     display: grid;
@@ -96,7 +96,7 @@ body {
     grid-column: 3 / 5;
 }
 
-/* --------- Buttons */
+/* --------- control buttons ----*/
 
 .btn {
     width: 45%;
@@ -136,6 +136,8 @@ body {
     color: #1d7151;
 }
 
+/* --------- sharp/flat answer buttons ----*/
+
 .btn--gray {
     margin-top: 25px;
     background-color: #1d7151;
@@ -153,7 +155,7 @@ body {
     color: #f2eddb
 }
 
-/*---------- Info lightbox */
+/*---------- info and game over lightbox */
 
 .info-modal {
     display: none;
@@ -226,9 +228,6 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
-/* --------- Game over modal */
-
 
 /* --------- Media queries */
 
