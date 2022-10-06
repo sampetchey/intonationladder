@@ -41,11 +41,11 @@ function audioPool() {
 function play() {
   let randomPitch = pitch[Math.floor(Math.random() * pitch.length)];
   document.getElementById("pitch").innerHTML = `${randomPitch}`
-  console.log(randomPitch);
+  //console.log(randomPitch);
   randomIntonation = intonation[Math.floor(Math.random() * intonation.length)];
-  console.log(randomIntonation);
+  //console.log(randomIntonation);
   document.getElementById("audio").src = `assets/audio/${randomIntonation}_${cent}cent_${randomPitch}.mp3`;
-  console.log(cent);
+  //console.log(cent);
   audio.play();
 }
 
@@ -55,7 +55,7 @@ function startGame() {
   score = 0;
   cent = 30;
   pitch = audioPool();
-  console.log(pitch);
+  //console.log(pitch);
   document.getElementById("level").innerHTML = `${cent} cent`;
 }
 
@@ -101,7 +101,7 @@ function increase() {
     document.getElementById("level").innerHTML = `${cent} cent`;
   } else if (score === 100) {
     alert("Congratulations! You achieved a perfect score of 100. Keep going, see how far you can go at 1 cent...");
-    console.log("Congratulations! You achieved a perfect score of 100");
+    //console.log("Congratulations! You achieved a perfect score of 100");
   }
   setTimeout(function () {
     ladder.classList.remove("move-ladder")
@@ -113,7 +113,7 @@ function gameOver() {
   document.getElementById("gameOver").style.display = "block";
   document.getElementById("correctAnswer").innerHTML = `Oh no! That's not right. The second note was ${randomIntonation}...`;
   document.getElementById("total").innerHTML = `${score}`;
-  console.log(score);
+  //console.log(score);
 }
 
 // when 'repeat' is clicked, replay the same audio file from the beginning
