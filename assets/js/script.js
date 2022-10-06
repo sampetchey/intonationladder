@@ -1,79 +1,4 @@
-//change logo for mobile
-// const mediaQuery = window.matchMedia('(max-width: 414px)');
-// mediaQuery.matches($(".logo").html("<img src='assets/images/intonation-ladder_mobile.png' alt='logo'>");
-
-//onclick 'play' button, mp3 file from 30_cent is randomly selected and played
-
-// There are ~ 1000 audio files in the audio folder
-// files are organised as [flat/sharp]_[centvalue]_[pitch of note]
-// Create a string that is the path to each audio file (this is where I am currently stuck)
-// When player clicks 'play':
-// 1. filter from the string and .play() a '30cent' audio file
-// 2. enable the 'repeat' button to replay the same selected audio file, any number of times 
-// 3. player clicks button 'flat' or 'sharp'
-// 4. if 'flat' button is clicked && file name contains 'flat' OR if 'sharp' button is clicked && file name contains 'sharp' - return true
-// 5. if true:
-//      ladder image goes 'up' 
-//      a new audio file, filtered from '30cent' is played
-// 6. with two 'true' answers, change filter to '29cent'
-// 7. decrease cent level (increasing difficulty) with every two questions
-// 8. between 20-11cent, play 5 audio files
-// 9. between 10-1cent, play 3 audio files
-// 10. maximum possible score is 100
-// 11. if player answers 'false' display result in a lightbox appears containing:
-//         'incorrect'
-//         the correct answer was ...
-//         repeat button to listen
-//         display total score...
-//         play again button
-//         quit button
-
-
-// var array = []
-// fs.readdir('/workspace/intonationladder/assets/audio/', function (err, files) {
-// files.forEach(function (fileName) {
-//     console.log(fileName);
-//     array.push(fileName)
-//    });  
-// });
-
-// async function getCommands() {
-//     let commands = {};
-
-//     //get all enteties from folder
-//     let commandFiles = await fs.promises.readdir("./assets/audio", (err, elements) => {
-//         if (err) return console.log(err);
-//     });
-
-//     commandFiles.forEach(file => { //loop through all elements in folder "commands"
-//        const element_in_folder = fs.statSync(`./assets/audio/${file}`)
-//        if (element_in_folder.isDirectory() == true) { //check if element in folder is a subfolder
-//           const sub_directory = `./assets/audio${file}/`;
-//           addCommandsFromSubFolder(commands, sub_directory);
-//        } else {
-//           //add command to object
-//           commands[Object.keys(commands).length] = {
-//              "audio": file
-//           }
-//        }
-//     });
-//     return commands; //return full object with all commands
-//  }
-
-
-
-// <button id="flat" data-value="flat">
-
-// playButton.addEventListener('click', startGame)
-
-/* Set initial game state and start the game.
- 
- */
-
-
-
-
-// const playButton = document.getElementById('play');
+// initial game state and variables.
 const flatButton = document.getElementById("flat-button");
 const sharpButton = document.getElementById("sharp-button");
 const quitButton = document.getElementById("quit-button");
@@ -81,7 +6,7 @@ const ladder = document.getElementById("ladder");
 const scoreBoard = document.querySelector('.score');
 const logo = document.getElementById("logo");
 const logoLabel = document.getElementById("headingLabel");
-
+//level 1 + 2
 const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
 //level 2
 const levelTwoPitchPool = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
@@ -94,14 +19,13 @@ let randomIntonation;
 let cent = 30;
 let score = 0;
 
+// add event listeners to activate player buttons.
 window.addEventListener('load', startGame);
 quitButton.addEventListener('click', startGame);
 flatButton.addEventListener('click', answerFlat);
 sharpButton.addEventListener('click', answerSharp);
-logo.addEventListener('mouseover', headingLabel);
 
-
-// different size audio pools reflect how many questions are being asked at specific cent levels.
+// different size audio pools for specific cent level groups.
 function audioPool() {
   if (score >= 20 && score < 70) {
     return levelOnePitchPool && levelTwoPitchPool;
