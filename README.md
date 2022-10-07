@@ -235,21 +235,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. This 
 
 Note that different Code Editors will have different processes for making the clone once the HTTPS link copy is made in step 4 above.
 
-## User Experience Research
 
-### Trial
-
-1. On 6 Oct 2022, Intonation Ladder was shared with professional musicians from the Band of the Welsh Guards to gain feedback. A Google form was provided for them to feedback their experience using the game, resulting in the following responses:
-
-![](assets/images/feedback1.png)
-![](assets/images/feedback2.png)
-![](assets/images/feedback3.png)
-
-2. In addition to the Google form, many of the musicians gave verbal feedback. The game design, structure and content were all very positively received. The objectives of helping improve aural ability appear to be well met.
-
-3. A suggestion for further improvement was to vary the sound type. Instead of just piano, to switch to brass or woodwind type sounds. This could be achieved with audio recordings using these sounds and simple buttons for players to choose what sound they would like to hear the quesion played with.
-
-4. The trial of Intonation Ladder also uncovered some unknown bugs due to the diversity of devices it was being played with.
 
 
 
