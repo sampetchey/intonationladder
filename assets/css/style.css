@@ -157,7 +157,7 @@ body {
     padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     -webkit-animation: fadein 1s linear forwards;
@@ -195,8 +195,8 @@ body {
 }
 
 .info-title {
-    width: 500px;
-    height: 66px;
+    width: 320px;
+    height: auto;
     object-fit: contain;
     margin: 10px;
 }

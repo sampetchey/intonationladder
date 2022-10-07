@@ -27,20 +27,20 @@
             <h2><span id="level">30 cent</span>&nbsp;&nbsp;<span id="pitch">A3</span></h2>
         </div>
         <div class="game-controls-area">
-            <button id="play" class="btn--big btn--green" onclick="play()">
+            <button id="play" class="btn--big btn--green" aria-label="play" onclick="play()">
                 <i class="fa-solid fa-play"></i>
             </button>
-            <button class="btn--big btn--green" onclick="replayAudio()">
+            <button class="btn--big btn--green" aria-label="replay" onclick="replayAudio()">
                 <i class="fa-solid fa-rotate-left"></i>
             </button>
-            <button id="quit-button" class="btn--big btn--red">
+            <button id="quit-button" class="btn--big btn--red" aria-label="quit">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
         <audio id="audio" src=""></audio>
         <div class="answer-button-area">
-            <button id="flat-button" class="btn btn--gray" data-value="flat">Flat</button>
-            <button id="sharp-button" class="btn btn--gray" data-value="sharp">Sharp</button>
+            <button id="flat-button" class="btn btn--gray" aria-label="flat" data-value="flat">Flat</button>
+            <button id="sharp-button" class="btn btn--gray" aria-label="sharp" data-value="sharp">Sharp</button>
         </div>
         <div class="info-area">
             <button id="info" class="btn--big btn--red" onclick="openModal()">
@@ -108,20 +108,17 @@
             <h3 id="correctAnswer"></h3>
             <br>
             <h2>Total score:</h2><h1 id="total"></h1>
-            <button class="btn--big btn--green" onclick="replayAudio()">
+            <button class="btn--big btn--green" aria-label="replay" onclick="replayAudio()">
                 <i class="fa-solid fa-rotate-left"></i>
             </button>
             <br>
             <h2>PLAY AGAIN...</h2>
-            <button id="play" class="btn--big btn--green" onclick="startGame(); play(); closeModal()">
+            <button id="play" class="btn--big btn--green" aria-label="play-again" onclick="startGame(); play(); closeModal()">
                 <i class="fa-solid fa-play"></i>
             </button>
         </div>
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.6.1.js"
-        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 
 </body>

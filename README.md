@@ -1,5 +1,9 @@
 ![](assets/images/game-layout.png)
 
+### View live site here
+
+[**INTONATION LADDER**](https://sampetchey.github.io/intonationladder/)
+
 ## Site Goals
 
 - Intonation Ladder is an ear training, music education game. Competence at comparing pitches is fundamental to the ability of a musician. Intonation Ladder measures how well a player can recognise a pitch that is slightly sharp or flat and helps them improve.
@@ -192,14 +196,60 @@
   document.getElementById("infoModal").style.display = "block";
 }
   ```
+
+## Deployment
+
+### GitHub Pages
+
+The project was deployed to GitHub Pages using the following process;
+
+1. The project was written in [GitPod](https://www.gitpod.io/) and pushed to GitHub Pages ready for deployment by taking the following steps;
+1. Logged in to GitHub and located the [GitHub Repository](https://github.com/Readri205/MS2_Project);
+1. At the top of the Repository, the "Settings" Button was selected on the menu;
+   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/deployment10050.jpg "See Settings").
+1. Scrolled down the Settings page until the "GitHub Pages" Section was located;
+1. Under "Source", the dropdown showing "None" was selected and then "Master Branch" was chosen;
+1. The selection was then saved and the page automatically refreshed; and
+1. The published site is found by scrolling back down the page to the "GitHub Pages" section to find the live site - [**EARTH AFRICA** :earth_africa:](https://readri205.github.io/MS2_Project/).
+   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/deployedgithubpages10050.jpg "Github Pages Deployed Site")
+
+### Forking the GitHub Repository
+
+A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changes can be made to the copy without affecting the original repository. Take the following steps to fork the repository;
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Readri205/MS2_Project);
+1. At the top of the Repository above the "Settings" Button on the menu, locate the "Fork" Button.
+   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/forking10050.jpg "Fork Button"); and
+1. Click to create a copy of the original repository in your own GitHub account.
+
+### Making a Local Clone
+
+1. Log in to **GitHub** and locate the [GitHub Repository](https://github.com/Readri205/MS2_Project)
+1. Under the repository name, click "Code".
+1. To clone the repository using HTTPS, click the top right hand link click "Use HTTPS";
+1. Copy the link under "Clone with HTTPS";
+   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/clone10050.jpg "HTTPS Clone")
+1. Open your Code Editor and access the appropriate process to paste the clone link;
+1. Change the current working directory to the location where you want to keep the cloned directory;
+1. Paste the URL you copied in step 4 above.
+
+Note that different Code Editors will have different processes for making the clone once the HTTPS link copy is made in step 4 above.
+
 ## User Experience Research
 
-  
+### Trial
 
+1. On 6 Oct 2022, Intonation Ladder was shared with professional musicians from the Band of the Welsh Guards to gain feedback. A Google form was provided for them to feedback their experience using the game, resulting in the following responses:
 
-  
+![](assets/images/feedback1.png)
+![](assets/images/feedback2.png)
+![](assets/images/feedback3.png)
 
+2. In addition to the Google form, many of the musicians gave verbal feedback. The game design, structure and content were all very positively received. The objectives of helping improve aural ability appear to be well met.
 
+3. A suggestion for further improvement was to vary the sound type. Instead of just piano, to switch to brass or woodwind type sounds. This could be achieved with audio recordings using these sounds and simple buttons for players to choose what sound they would like to hear the quesion played with.
+
+4. The trial of Intonation Ladder also uncovered some unknown bugs due to the diversity of devices it was being played with.
 
 
 
