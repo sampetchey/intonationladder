@@ -41,7 +41,6 @@ body {
 .ladder {
     width: 250px;
     height: 180px;
-    transition-duration: 2;
     object-fit: none;
     object-position: bottom;
     overflow: hidden;
