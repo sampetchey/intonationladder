@@ -82,7 +82,7 @@
 
 ![](assets/images/ladder-img.png) ![](assets/images/score-board.png) ![](assets/images/control-buttons.png) ![](assets/images/player-buttons.png)
 
-  Game information and instructions are hidden on load. The opening screen is intuitive enough for a player to work out immediately what they are to do. Where clarity or more information is required, the info icon opens a modal with information and instructions.
+  Game information and instructions are hidden on load. The opening screen is intuitive enough for a player to work out immediately what they are to do. Where clarity or more information is required, the info icon opens a modal with information and instructions. The window has a vertical scroll in order to present all the information.
 
 ![](assets/images/info-modal.png)
 
@@ -113,16 +113,15 @@
   With a simple visual layout, the complexity of Intonation Ladder lies in its underlying Javascript code. The programming logic can be broken into the following steps and functions:
 
   1. On page load:
-    a.  Set score and cent level to 0.
-    b.  Flat and Sharp buttons return 'null' as no audio has been played.
-  2. When 'Play' is clicked:
-    a.  Randomly generate an audio file.
-      - The audio file is randomly generated using arrays of the file atributes.
-      - For example: ```assets/audio/flat_21cent_E5.mp3```
-      - The file attributes are Intonation: [sharp, flat], Cent (the game begins with the at 30) and the pitch e.g. 'A4'.
-      - A pool of 9 pitches were recorded, both sharp and flat, at Cent levels 30-21; 25 at levels 20-11 and 12 at levels 10-1.
-      - With this information the following arrays were written. Using arrays of file information simplifies the code. 
-      - Alternatively, 1000 audio files could have been written into the code and it would have got very complicated.
+      * Score is set to 0 and cent level to 30.
+      * Flat and Sharp buttons return 'null' as no audio has yet been played.
+  2. When 'Play' is clicked, randomly generate an audio file.
+      * The audio file is randomly generated using arrays of the file atributes.
+      * For example: ```assets/audio/flat_21cent_E5.mp3```
+      * The file attributes are Intonation: [sharp, flat], Cent (the game begins with the at 30) and the pitch e.g. 'A4'.
+      * A pool of 9 pitches were recorded, both sharp and flat, at Cent levels 30-21; 25 at levels 20-11 and 12 at levels 10-1.
+      * With this information the following arrays were written. Using arrays of file information simplifies the code. 
+      * Alternatively, 1000 audio files could have been written into the code and it would have got very complicated.
       ```
       const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
       const levelTwoPitchPool = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
@@ -141,9 +140,7 @@
       audio.play();
       }
       ```
-  3. When 'Repeat' is clicked:
-    a.  The same audio file is sounded any number of times allowing players to listen more carefully.
-    b.  Resounding happens immediately when 'Repeat' is clicked.
+  3. When 'Repeat' is clicked, the same audio file is sounded any number of times allowing players to listen more carefully. Resounding happens immediately when 'Repeat' is re-clicked.
       ```
       function replayAudio() {
       audio.currentTime = 0;
@@ -151,9 +148,9 @@
       }
       ```
   4. To answer, the player selects 'Flat' or 'Sharp'.
-    a. The functions called by the button depends upon if it matches the randomIntonation value. 
-    b. If correct, functions are called to increase the score, level and generate a new audio file.
-    c. If incorrect, the gameOver() function is called:
+    * The functions called by the button depends upon if it matches the randomIntonation value. 
+    * If correct, functions are called to increase the score, level and generate a new audio file.
+    * If incorrect, the gameOver() function is called:
       ```
       function answerFlat() {
         if (!randomIntonation) {
