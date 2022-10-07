@@ -9,7 +9,7 @@ const logoLabel = document.getElementById("headingLabel");
 //level 1 + 2
 const levelOnePitchPool = ['A4', 'B3', 'C3', 'C5', 'D4', 'E3', 'E5', 'F4', 'G3'];
 //level 2
-const levelTwoPitchPool = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4']
+const levelTwoPitchPool = ['A2', 'A3', 'B2', 'B4', 'C2', 'C4', 'D2', 'D3', 'D5', 'E2', 'E4', 'F2', 'F3', 'F5', 'G2', 'G4'];
 //level 3
 const levelThreePitchPool = ['A3', 'A5', 'B2', 'B4', 'C4', 'D3', 'D5', 'E4', 'F3', 'F5', 'G2', 'G4'];
 const intonation = ['sharp', 'flat'];
@@ -31,16 +31,16 @@ function audioPool() {
     return levelOnePitchPool && levelTwoPitchPool;
   }
   if (score >= 70) {
-    return levelThreePitchPool
+    return levelThreePitchPool;
   } else {
-    return levelOnePitchPool
+    return levelOnePitchPool;
   }
 }
 
 // randomly select an audio file by generating the three file properties, intonation, cent level and pitch.
 function play() {
   let randomPitch = pitch[Math.floor(Math.random() * pitch.length)];
-  document.getElementById("pitch").innerHTML = `${randomPitch}`
+  document.getElementById("pitch").innerHTML = `${randomPitch}`;
   //console.log(randomPitch);
   randomIntonation = intonation[Math.floor(Math.random() * intonation.length)];
   //console.log(randomIntonation);
