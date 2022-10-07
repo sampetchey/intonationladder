@@ -62,7 +62,7 @@ function startGame() {
 // flat/sharp answer buttons determine correct or incorrect answers
 function answerFlat() {
   if (!randomIntonation) {
-    return
+    return;
   }
   if (randomIntonation === 'flat') {
     play();
@@ -75,7 +75,7 @@ function answerFlat() {
 
 function answerSharp() {
   if (!randomIntonation) {
-    return
+    return;
   }
   if (randomIntonation === 'sharp') {
     play();

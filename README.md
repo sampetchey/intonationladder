@@ -4,6 +4,17 @@
 
 [**INTONATION LADDER**](https://sampetchey.github.io/intonationladder/)
 
+## Index – Table of Contents
+
+* [Site Goals](#site-goals) 
+* [User Experience](#user-experience)
+* [Design](#design)
+* [Technologies Used](#technologies-used)
+* [Programming Design](#programming-design)
+* [Deployment, Testing and Bugs](#deployment)
+* [Acknowledgements](#credit)
+
+
 ## Site Goals
 
 - Intonation Ladder is an ear training, music education game. Competence at comparing pitches is fundamental to the ability of a musician. Intonation Ladder measures how well a player can recognise a pitch that is slightly sharp or flat and helps them improve.
@@ -18,9 +29,7 @@
 
 - Intonation Ladder would sit well alongside other ear training games in a music education website. It could be marketed to school music classes as a fun and effective way of improving listening skills.
 
-- The site is responsive to all screen sizes. 
-
-## User Experience (UX)
+## User Experience
 
 - ### User stories
 
@@ -29,15 +38,18 @@
   - A first time visitor will want to;
 
     - easily understand the objective of the game;
-
+      * The brand sharp and flat symbols give a good idea what the game is about from the start.
+      * The 'i' icon is easily recognised for showing more information.
+      * The 'i', information window displays the name of the game without symbols, for non-musicians who may not know 'intonation'.
     - begin play immediately;
-
+      * Players can click 'play' as soon as the page has loaded
     - know their score and level;
-
-    - be able to replay the audio to a question as many times as they like; 
-
+      * Players score is always visible.
+      * The 'Game Over' page displays their final score and allows them to replay the audio file they got wrong.
+    - be able to replay the audio to a question as many times as they like;
+      * Players click the 'repeat' button to hear the same audio file as many times as they like. 
     - reattempt the game easily;
-
+      * Click 'Play' from the 'Game Over' page.
     - be motivated by the design, colour and layout. 
 
 - #### Returning and Frequent User Goals
@@ -45,16 +57,9 @@
   - A returning or frequent user will want;
 
     - Information and game rules hidden;
-
     - An immediate start;
-
     - To prove and record their progress;
-
-- #### Using Intonation Ladder on a mobile device
-
-  - The layout adapts to different screen sizes. Interactive 'flat' and 'sharp' buttons are positioned in the area of a player's thumb, keeping the score and progress info visible further up the screen.
-
-![](assets/images/mobile-layout.png)
+      * The game could be extended in this area to create user accounts, a gradebook and options for sharing.
 
 ## Design
 
@@ -84,6 +89,24 @@
   A 'game over' page appears when a player makes the wrong answer. It shows the final score, enables a player to re-hear the audio they just got wrong and start another game.
 
 ![](assets/images/total-score.png)
+
+### Small Screens
+
+  - The layout adapts subtly to a smaller screen width. Interactive 'flat' and 'sharp' buttons are positioned in the area of a player's thumb, keeping the score and progress info visible further up the screen. With some trial and testing, it looked less cluttered to hide the ladder animation for smaller screen sizes.
+
+  - Not having instructions clutter the opening page is ideal for mobiles because of the limited screen space. Additionally, keeping insructions hidden on load helped the appearance on large and small look similar.  This effectively maintains the same recognisable brand across all devices.
+
+![](assets/images/mobile-layout.png)
+
+## Technologies Used 
+
+  - Logic Pro X DAW and Steinway Piano sound sample - for recording audio files
+  - HTML5 - Mark-up language using semantic structure.
+  - CCS3 - Cascading style sheet used to style.
+  - JavaScript - Programming language.  
+  - Gitpod.io - for writing the code and command line for committing/pushing to Git Hub
+  - GitHub - hosting repositories
+  - GIT - Pushing code to repositories
 
 ## Programming Design
 
@@ -196,47 +219,39 @@
   document.getElementById("infoModal").style.display = "block";
 }
   ```
-
 ## Deployment
 
 ### GitHub Pages
 
 The project was deployed to GitHub Pages using the following process;
 
-1. The project was written in [GitPod](https://www.gitpod.io/) and pushed to GitHub Pages ready for deployment by taking the following steps;
-1. Logged in to GitHub and located the [GitHub Repository](https://github.com/Readri205/MS2_Project);
-1. At the top of the Repository, the "Settings" Button was selected on the menu;
-   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/deployment10050.jpg "See Settings").
-1. Scrolled down the Settings page until the "GitHub Pages" Section was located;
-1. Under "Source", the dropdown showing "None" was selected and then "Master Branch" was chosen;
-1. The selection was then saved and the page automatically refreshed; and
-1. The published site is found by scrolling back down the page to the "GitHub Pages" section to find the live site - [**EARTH AFRICA** :earth_africa:](https://readri205.github.io/MS2_Project/).
-   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/deployedgithubpages10050.jpg "Github Pages Deployed Site")
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/sampetchey/intonationladder);
+2. At the top of the Repository, select "Settings" Button;
+   ![alt text](https://github.com/sampetchey/intonationladder/settings).
+3. Scroll to the "GitHub Pages" section;
+4. Under "Source", select the "Main" branch from the dropdown showing "None";
+5. Click Save;
+6. The site is now published to GitHub pages
 
-### Forking the GitHub Repository
+## Testing and Bugs
 
-A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changes can be made to the copy without affecting the original repository. Take the following steps to fork the repository;
+Intonation Ladder was trialed with users and tested.
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Readri205/MS2_Project);
-1. At the top of the Repository above the "Settings" Button on the menu, locate the "Fork" Button.
-   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/forking10050.jpg "Fork Button"); and
-1. Click to create a copy of the original repository in your own GitHub account.
+[Click here to view the Testing results page](https://github.com/sampetchey/intonationladder/blob/main/TESTING.md)
 
-### Making a Local Clone
+## Acknowledgements
 
-1. Log in to **GitHub** and locate the [GitHub Repository](https://github.com/Readri205/MS2_Project)
-1. Under the repository name, click "Code".
-1. To clone the repository using HTTPS, click the top right hand link click "Use HTTPS";
-1. Copy the link under "Clone with HTTPS";
-   ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/clone10050.jpg "HTTPS Clone")
-1. Open your Code Editor and access the appropriate process to paste the clone link;
-1. Change the current working directory to the location where you want to keep the cloned directory;
-1. Paste the URL you copied in step 4 above.
+Ideas, various possible solutions, help in organising my code and general tutoring was gratefully received from:
 
-Note that different Code Editors will have different processes for making the clone once the HTTPS link copy is made in step 4 above.
+  - The Code Institute online Tutor Support team
+  - Brian Macharia (Code Institute mentor)
+  - [w3schools.com](https://www.w3schools.com/js/js_objects.asp)
+  - [Javascript30.com](https://javascript30.com/))
+  - Code Institute 'Javascript Walkthrough Project' was a helpful starting template
 
+All code used in this project was written by myself.
 
-
+Many thanks to my mentor Brian Macharia from Code Institute and tutor Pasquale Fasulo from City of Bristol College.
 
 
 
